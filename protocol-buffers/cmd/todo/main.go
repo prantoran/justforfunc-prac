@@ -7,6 +7,10 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/golang/protobuf/proto"
+
+	"github.com/prantoran/justforfunc-prac/protocol-buffers/todo"
 )
 
 func main() {
@@ -34,7 +38,14 @@ func main() {
 	fmt.Printf("TODO")
 }
 
+const dbPath = "mydb.pb"
+
 func add(text string) error {
+	task := &todo.Task{
+		Text: text,
+		Done: false,
+	}
+	fmt.Println(proto.MarshalTextString(task))
 	return nil
 }
 
