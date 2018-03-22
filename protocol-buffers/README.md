@@ -13,3 +13,15 @@
 - Executing
   - Inside todo/:
     - protoc --go_out=. todo.proto
+  - todo add some text
+  - todo list
+
+- Inspecting mydb.pb
+  - Checking the type and contents
+    - file mydb.pb
+    - hexdump mydb.pb
+    - hexdump -c mydb.pb
+  - note: the extra fields in .pb file, which are not ascii, allow protobuf to decode the file
+  - Checking the contents using protoc
+    - cat mydb.pb | protoc --decode_raw
+    - The special characters (eg. field position numbers) are recognised by protoc and shown in the output 
